@@ -2,7 +2,6 @@ var csv = require('csv');
 var express = require('express');
 var request = require('request');
 var sleep = require('sleep');
-var superagent = require('superagent');
 
 // request('http://georgiaenergydata.herokuapp.com/123', function(e, res, body) {
 // console.log(body)
@@ -10,7 +9,7 @@ var superagent = require('superagent');
 var fs = require('fs');
 var stream = fs.createWriteStream("my_file.txt");
 
-csv().from.path(__dirname + '/full.csv').transform(function(data) {
+csv().from.path(__dirname + '/1.csv').transform(function(data) {
 	request('http://nominatim.openstreetmap.org/search/' + data[1] + '?format=json', function(e, res, body) {
 		var row = [];
 		body = JSON.parse(body)
